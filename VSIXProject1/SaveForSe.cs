@@ -127,7 +127,7 @@ namespace SaveForSe
             get
             {
                 OptionPageGrid page = (OptionPageGrid)_package.GetDialogPage(typeof(OptionPageGrid));
-                return page.DefaultStartName;
+                return page.LabelStartName;
             }
         }
 
@@ -155,12 +155,10 @@ namespace SaveForSe
             ClipboartUpdate(lines, DefaultStartName);
         }
 
-        private void ClipboartUpdate(string[] lines, string startName)
+        private static void ClipboartUpdate(string[] lines, string startName)
         {
             var start = GetStart(lines, startName);
             var end = GetEnd(start, lines);
-
-//            ShowMsg($"start {start} end {end}");
 
             if (lines[start].Contains("{") && lines[end].Contains("}"))
             {
@@ -198,28 +196,70 @@ namespace SaveForSe
 
         private static int GetEnd(int start, string[] lines)
         {
-            var idx = 0;
+            if (start < 0)
+            {
+                return -1;
+            }
+
+            var idx = start;
             var end = lines.Length;
             var countBrace = 0;
 
-            for (idx = start; idx < end; idx++)
+            for (; idx < end; idx++)
             {
                 var line = lines[idx];
 
-                if (line.Contains("{"))
+                switch (GetBrace(line))
                 {
-                    countBrace++;
-                }
-                else if (line.Contains("}"))
-                {
-                    if (--countBrace <= 1)
-                    {
-                        return idx;
-                    }
+                    case 1:
+                        countBrace++;
+                        break;
+                    case -1:
+                        countBrace--;
+
+                        if (countBrace <= 0)
+                        {
+                            return idx;
+                        }
+
+                        break;
                 }
             }
 
             return -1;
+        }
+
+        private static int GetBrace(string line)
+        {
+            if (string.IsNullOrEmpty(line))
+            {
+                return 0;
+            }
+
+            int countBrace = 0;
+            foreach (char t in line)
+            {
+                if (t == '{')
+                {
+                    countBrace++;
+                }
+                else if (t == '}')
+                {
+                    countBrace--;
+                }
+            }
+
+            if (countBrace > 0)
+            {
+                return 1;
+            }
+
+            if (countBrace < 0)
+            {
+                return -1;
+            }
+
+            return 0;
         }
 
         private static int GetLineNum(string[] filelines, string str)
