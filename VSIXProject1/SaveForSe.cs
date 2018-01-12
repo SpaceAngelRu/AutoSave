@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -132,6 +133,24 @@ namespace SaveForSe
             }
         }
 
+        private string PathToIngameScriptsLocal
+        {
+            get
+            {
+                OptionPageGrid page = (OptionPageGrid)_package.GetDialogPage(typeof(OptionPageGrid));
+                return page.PathToIngameScriptsLocal;
+            }
+        }
+
+        private bool IsCopyToBuffer
+        {
+            get
+            {
+                OptionPageGrid page = (OptionPageGrid)_package.GetDialogPage(typeof(OptionPageGrid));
+                return page.IsCopyToBuffer;
+            }
+        }
+
         private readonly string[] _exclude = {"obj\\Debug", "obj\\Debug", "Properties"};
 
         private readonly Package _package;
@@ -192,7 +211,7 @@ namespace SaveForSe
 
         #region Private methods
 
-        private void GetCode(string dir, string fileExt, string[] exclude)
+        private StringBuilder GetCode(string dir, string fileExt, string[] exclude)
         {
             List<string> allfiles = Directory.GetFiles(dir, fileExt, SearchOption.AllDirectories).ToList();
 
@@ -239,7 +258,7 @@ namespace SaveForSe
 
             if (programClassData == null)
             {
-                return;
+                return null;
             }
 
             StringBuilder resCode = new StringBuilder();
@@ -279,7 +298,7 @@ namespace SaveForSe
                 resCode.AppendLine(programClassData.Code[i].Length > lenTabPc ? programClassData.Code[i].Remove(0, lenTabPc) : programClassData.Code[i]);
             }
 
-            Clipboard.SetText(resCode.ToString());
+            return resCode;
         }
 
         private static int GetLenTab(string str)
@@ -506,7 +525,42 @@ namespace SaveForSe
                 if (activeProject != null)
                 {
                     string str = Path.GetDirectoryName(activeProject.FileName);
-                    GetCode(str, FILE_EXT, _exclude);
+                    StringBuilder rescode = GetCode(str, FILE_EXT, _exclude);
+
+                    if (rescode != null)
+                    {
+                        string resStr = rescode.ToString();
+
+                        if (IsCopyToBuffer)
+                            Clipboard.SetText(resStr);
+
+                        string pathToIngameRoot = PathToIngameScriptsLocal;
+                        if (!string.IsNullOrEmpty(pathToIngameRoot))
+                        {
+                            string namePrj = Path.GetFileNameWithoutExtension(activeProject.FileName);
+
+                            if (!string.IsNullOrEmpty(namePrj) && Directory.Exists(pathToIngameRoot))
+                            {
+                                string pathToIngame = Path.Combine(pathToIngameRoot, namePrj);
+
+                                if (!Directory.Exists(pathToIngame))
+                                {
+                                    Directory.CreateDirectory(pathToIngame);
+                                }
+
+                                string fileScript = Path.Combine(pathToIngame, "Script.cs");
+                                File.WriteAllText(fileScript, resStr);
+
+                                string fileThumb = Path.Combine(pathToIngame, "thumb.png");
+                                if (!File.Exists(fileThumb))
+                                {
+                                    Image bmp = new Bitmap(Resource.thumb);
+                                    bmp.Save(fileThumb);
+                                }
+                               
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception e)

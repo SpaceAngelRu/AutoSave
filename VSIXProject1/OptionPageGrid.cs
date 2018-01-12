@@ -46,5 +46,17 @@ namespace SaveForSe
         [Description("Include empty line in the code")]
 
         public bool IsIncludeEmptyLine { get; set; } = false;
+
+        [Category("Options")]
+        [DisplayName("Path to ingameScripts\\local")]
+        [Description("Path to c:\\users\\<user name>\\appData\\roaming\\spaceEngineers\\ingameScripts\\local\\")]
+
+        public string PathToIngameScriptsLocal { get; set; } = "";
+
+        [Category("Options")]
+        [DisplayName("Copy to clipboard")]
+        [Description("Copy to clipboard")]
+
+        public bool IsCopyToBuffer { get; set; } = true;
     }
 }

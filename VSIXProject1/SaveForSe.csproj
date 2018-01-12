@@ -61,6 +61,11 @@
     <Compile Include="OptionPageGrid.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="SaveForSe.cs" />
     <Compile Include="SaveForSePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +86,7 @@
     <Content Include="Resources\SaveFile.png" />
     <Content Include="Resources\SaveForSe.png" />
     <Content Include="Resources\SaveForSe.ico" />
+    <Resource Include="Resources\thumb.png" />
     <Content Include="Resources\ToolsOptionsPackage.ico" />
     <Content Include="stylesheet.css" />
   </ItemGroup>
@@ -184,6 +190,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VSPackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
       <ManifestResourceName>VSPackage</ManifestResourceName>
