@@ -13,7 +13,7 @@ namespace SaveForSe
 
         [Category("Options")]
         [DisplayName("Label end script")]
-        [Description("The contents of the comment line for marking the start line for copying to the clipboard - //End script")]
+        [Description("The contents of the comment line for marking the end line for copying to the clipboard - //End script")]
 
         public string LabelEndName { get; set; } = "End script";
 
