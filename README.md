@@ -43,4 +43,4 @@ namespace SeScripts.Dron
 
 # Installation
 Выключить студию, загрузить и запустить
-https://github.com/SpaceAngelRu/AutoSave/releases/download
+https://github.com/SpaceAngelRu/AutoSave/releases
