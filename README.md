@@ -1,7 +1,7 @@
 # AutoSave
 Extension of Visual Studio. Copies Space Engineers script code to buffer
 
-Расширение для Visual studio, добавляет авто сохранение скрипта в текущем документе.
+Расширение для Visual studio, добавляет авто сохранение скрипта в текущем документе в буффер обмена.
  - Во время сохранения (Если включена в настройках, Tools -> Options -> SaveForSe -> Enable save to buffer)
  - После нажатия кнопки сохранения (Tools -> Save for Space Engineers)
 
@@ -35,3 +35,7 @@ namespace SeScripts.Dron
 
 - //Start script, //End script - точки начала и окончания скрипта (все, что между ними копируется в буффер)
 - Tools -> Options -> SaveForSe - можно изменить текст точек.
+
+# Installation
+Выключить студию, загрузить и запустить
+https://github.com/SpaceAngelRu/AutoSave/releases/download/1.1/SaveForSe.vsix
