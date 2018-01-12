@@ -9,9 +9,7 @@ Extension of Visual Studio. Copies Space Engineers script code from all project 
  - Можно исключать пустые строки, комментарии и region блоки
  - Для добавления комментариев при включенном исключении, нужно добавить "-". Пример: //- ваш комментарий
  - Можно прописать путь к c:\users\<user name>\appData\roaming\spaceEngineers\ingameScripts\local\, если нужно загружать скрипт не через буфер.
-
-- //Start script, //End script - точки начала и окончания скрипта (все, что между ними копируется в буффер)
-- Tools -> Options -> SaveForSe - можно изменить текст точек.
+- Tools -> Options -> SaveForSe настройки.
 
 # Installation
 Выключить студию, загрузить и запустить
