@@ -1,6 +1,7 @@
 # AutoSave
 Extension of Visual Studio. Copies Space Engineers script code to buffer
 
+# Desc
 Расширение для Visual studio, добавляет копирование всех классов проекта в буфер для вставки в скрипт Space Engineers.
  - Учитывается вхождение класса в Program. Теперь можно иметь полноценные классы в разных файлах. Классы будут вверху скрипта.
  - Во время сохранения (Если включена в настройках, Tools -> Options -> SaveForSe -> Enable save to buffer)
@@ -39,3 +40,7 @@ namespace SeScripts.Dron
 
 - //Start script, //End script - точки начала и окончания скрипта (все, что между ними копируется в буффер)
 - Tools -> Options -> SaveForSe - можно изменить текст точек.
+
+# Installation
+Выключить студию, загрузить и запустить
+https://github.com/SpaceAngelRu/AutoSave/releases/download
