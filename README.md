@@ -1,5 +1,5 @@
 # AutoSave
-Extension of Visual Studio. Copies Space Engineers script code to buffer
+Extension of Visual Studio. Copies Space Engineers script code from all project files to buffer and spaceEngineers\ingameScripts\local
 
 # Desc
 Расширение для Visual studio, добавляет копирование всех классов проекта в буфер для вставки в скрипт Space Engineers.
