@@ -6,21 +6,45 @@ namespace SaveForSe
     public class OptionPageGrid : DialogPage
     {
         [Category("Options")]
-        [DisplayName("Label start script")]
-        [Description("The contents of the comment line for marking the start line for copying to the clipboard - //Start script")]
-
-        public string LabelStartName { get; set; } = "Start script";
-
-        [Category("Options")]
-        [DisplayName("Label end script")]
-        [Description("The contents of the comment line for marking the end line for copying to the clipboard - //End script")]
-
-        public string LabelEndName { get; set; } = "End script";
-
-        [Category("Options")]
         [DisplayName("Enable save to buffer")]
-        [Description("Enable save to buffer")]
+        [Description("Enable saving to buffer")]
 
         public bool IsSaveTobuffer { get; set; } = true;
+
+        [Category("Options")]
+        [DisplayName("Enable all errors")]
+        [Description("Enable displaying all errors")]
+
+        public bool IsShowError { get; set; } = true;
+
+        [Category("Options")]
+        [DisplayName("Label exclude")]
+        [Description("Tag deactivate the file from the project")]
+
+        public string LabelExclude { get; set; } = "Exclude from project";
+
+        [Category("Options")]
+        [DisplayName("Comment exclude ")]
+        [Description("Exclude comments from processing")]
+
+        public string CommentExclude { get; set; } = "//-";
+
+        [Category("Options")]
+        [DisplayName("Include comments")]
+        [Description("Include comments in the code")]
+
+        public bool IsIncludeComment { get; set; } = false;
+
+        [Category("Options")]
+        [DisplayName("Include regions")]
+        [Description("Include regions in the code")]
+
+        public bool IsIncludeRegion { get; set; } = false;
+
+        [Category("Options")]
+        [DisplayName("Include empty line")]
+        [Description("Include empty line in the code")]
+
+        public bool IsIncludeEmptyLine { get; set; } = false;
     }
 }
