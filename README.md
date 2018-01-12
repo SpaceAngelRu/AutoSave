@@ -35,3 +35,6 @@ namespace SeScripts.Dron
 
 - //Start script, //End script - точки начала и окончания скрипта (все, что между ними копируется в буффер)
 - Tools -> Options -> SaveForSe - можно изменить текст точек.
+
+#Installation
+https://github.com/SpaceAngelRu/AutoSave/releases/download/1.1/SaveForSe.vsix
