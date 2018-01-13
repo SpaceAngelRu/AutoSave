@@ -9,5 +9,5 @@
 - Tools -> Options -> SaveForSe настройки.
 
 # Installation
-Выключить студию, загрузить и запустить
+Загрузить, запустить
 https://github.com/SpaceAngelRu/AutoSave/releases
