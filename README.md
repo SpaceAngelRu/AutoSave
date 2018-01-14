@@ -5,7 +5,7 @@
  - Есть возможность иключить файл из обработки, нужно добавить //Exclude from project, в любое место файла.
  - Можно исключать пустые строки, комментарии и region блоки
  - Для добавления комментариев при включенном исключении, нужно добавить "-". Пример: //- ваш комментарий
- - Если нужно загружать скрипт из workshop, добавьте путь к c:\users\<Имя пользователя>\appData\roaming\spaceEngineers\ingameScripts\local\
+ - Если нужно загружать скрипт из workshop, добавьте путь в настройках к c:\users\<Имя пользователя>\appData\roaming\spaceEngineers\ingameScripts\local\
  - Tools -> Options -> SaveForSe настройки.
  - Можно отключить сохранение в буффер обмена (Tools -> Options -> SaveForSe -> Enable save to buffer)
 
